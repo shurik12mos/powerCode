@@ -1,0 +1,70 @@
+body {
+	background-color: #eee;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.tabs-container {
+	overflow: hidden;
+}
+
+.tab-links {	
+	padding-left: 50px;	
+}
+
+.tab-link {
+	display: inline-block;
+	border: 1px solid #ccc;
+	padding: 7px;
+	margin: 5px 5px 0px 5px;
+	cursor: pointer;
+	border-bottom: none;
+	background-color: #ddd;
+}
+
+.tab-link :hover,
+.tab-link-active {
+	background-color: #fff;
+}
+
+.tab-content-visible {
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+}
+
+.figure-wrapper {
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	z-index: 3;
+	width: 50px;
+	font-size: 30px;
+	padding: 15px 10px;
+	background-color: #999;
+	color: green;	
+}
+
+.figure {
+	margin: 10px 0px;
+	cursor: pointer;
+}
+
+.drag-container {
+	height: 100%;
+	position: relative;
+	background-color: #fff;
+	overflow: hidden;
+}
+		
+.drag-element {
+    width: 150px;
+	height: 150px;
+	position: absolute;
+}
+
+.circle {
+	border-radius: 50%;
+}
