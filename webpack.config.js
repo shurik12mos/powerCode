@@ -25,12 +25,8 @@ module.exports = {
     new ExtractTextPlugin('app.css')
   ],
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
-        include: path.join(__dirname, 'src')		
-      },
+    loaders: [      
+	  { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader", include: path.join(__dirname, 'src') },     
       { test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?module!cssnext-loader') }
     ]
   },

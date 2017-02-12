@@ -6,10 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as DragActions from '../actions/DragActions';
 
 export default class DragContainer extends Component { 
-   static propTypes = {
-      addFigure: PropTypes.func.isRequired
-	}   
-   
+     
   render () {	
     return (
 	  <div className={classnames('drag-container')}
@@ -38,12 +35,19 @@ export default class DragContainer extends Component {
   } 
   
   handleDrop(e) {
-	 var name = e.dataTransfer.getData("Text"),
-	 y, x,
-	 offsetTop = e.currentTarget.offsetTop;
+	 var name, y, x, offsetTop;
 	 
-	 y = e.clientY - offsetTop - 75;
-	 x = e.clientX - 75;
+	 try {
+		name = e.dataTransfer.getData("Text");
+		offsetTop = e.currentTarget.offsetTop;
+		y = e.clientY - offsetTop - 75;
+		x = e.clientX - 75;
+	 } catch (err) {
+		return 
+	 }finally {
+		if (!name) return 
+	 }
+	
 	 this.props.addFigure(name, x, y, this.props.tab); 	 	 
   }  
    
